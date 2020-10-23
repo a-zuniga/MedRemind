@@ -1,4 +1,7 @@
 ﻿@page "/newmedications"
+@using MedRemind.Data;
+
+
 <h3>New Medications</h3>
 <br />
 
@@ -16,10 +19,60 @@
 
 <AuthorizeView>
     <Authorized>
-        <h3>Welcome, </h3>
-        <p>Please input information about your medication in order to add it to your list of medications.</p>
-
+        <p>These are your current Medications.</p>
         
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Treats</th>
+                    <th>Mgs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Adderall IR</th>
+                    <th>ADHD</th>
+                    <th>10</th>
+                </tr>
+                <tr>
+                    <th>Vicodin</th>
+                    <th>Pain</th>
+                    <th>10</th>
+                </tr>
+                <tr>
+                    <th>Zocor</th>
+                    <th>High cholester</th>
+                    <th>10</th>
+                </tr>
+                <tr>
+                    <th>Xanax</th>
+                    <th>Anxiety</th>
+                    <th>10</th>
+                </tr>
+            </tbody>
+        </table>
+        
+        <br />
+        <br />
+        <br />
+
+        <h3>Please input your new medication:</h3>
+        <style>
+            div {
+                text-align: center;
+            }
+        </style>
+        <div>
+            <form action="/">
+                <label for="name">Medication Name:</label><br>
+                <input type="text" id="name" name="fname"><br>
+                <label for="totalMeds">Total amount:</label><br>
+                <input type="number" id="totalamount" name="lname">
+            </form>
+        </div>
+        
+
     </Authorized>
     <NotAuthorized>
         Seems like you are not logged in! Please log in or register in order to access our services.
@@ -27,5 +80,7 @@
 </AuthorizeView>
 
 @code {
+    
 
+    
 }
