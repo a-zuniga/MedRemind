@@ -1,0 +1,31 @@
+﻿@page "/newmedications"
+<h3>New Medications</h3>
+<br />
+
+@code{
+    /*
+        Please make sure to make a form that asks the user about the medication. 
+        Some questions could be: 
+        1) Name of Medication
+        2) Number of tablets in your prescription
+        3) Number of tablets you need to take in a single day and at what time. 
+        4) Refilld date
+        4) etc.
+    */
+}
+
+<AuthorizeView>
+    <Authorized>
+        <h3>Welcome, </h3>
+        <p>Please input information about your medication in order to add it to your list of medications.</p>
+
+        
+    </Authorized>
+    <NotAuthorized>
+        Seems like you are not logged in! Please log in or register in order to access our services.
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+}
