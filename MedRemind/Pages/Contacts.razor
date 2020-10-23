@@ -1,5 +1,18 @@
 ﻿@page "/contacts"
 
+@code {
+    private string PContactName;
+    private string PContactrelation;
+    private string PContactphone;
+    private string MContactoffice;
+    private string MContactName;
+    private string MContactSpecialty;
+    private string MContactPhone;
+    private IList<MedRemind.Data.MedicalContact> medicalContacts = new List<MedRemind.Data.MedicalContact>();
+    private IList<MedRemind.Data.PersonalContact> personalContacts = new List<MedRemind.Data.PersonalContact>();
+
+}
+
 <h1>Contacts</h1>
 <br>
 
@@ -16,28 +29,65 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th>Metropolitan Orthodontics</th>
-            <th>Dr. A. Maria</th>
-            <th>Orthodontist</th>
-            <th>(444) 444-444</th>
-        </tr>
-        <tr>
-            <th>Metro Pediatric Services</th>
-            <th>Dr. John Doe</th>
-            <th>Nurse Practitioner</th>
-            <th>(111) 111-111</th>
-        </tr>
-        <tr>
-            <th>Richmond CVS</th>
-            <th>A. Allen</th>
-            <th>Pharmacist</th>
-            <th>(111) 222-222</th>
-        </tr>
+
+        @foreach (var contact in medicalContacts)
+        {
+            <tr>
+                <th>@contact.office</th>
+                <th>@contact.name</th>
+                <th>@contact.specialty</th>
+                <th>@contact.phone</th>
+            </tr>
+        }
+
     </tbody>
 </table>
 
+<br>
+<br>
+<h3>Enter a new medical contact: </h3>
 <br />
+<div class="form-group">
+    <label for="usr">Office:</label>
+    <input type="text" class="form-control" id="pwd" @bind="MContactoffice">
+</div>
+<div class="form-group">
+    <label for="usr">Name:</label>
+    <input type="text" class="form-control" id="usr" @bind="MContactName">
+</div>
+<div class="form-group">
+    <label for="usr">Specialty:</label>
+    <input type="text" class="form-control" id="pwd" @bind="MContactSpecialty">
+</div>
+<div class="form-group">
+    <label for="usr">Phone:</label>
+    <input type="text" class="form-control" id="pwd" @bind="MContactPhone">
+</div>
+<br />
+<button @onclick="AddMedicalContact" class="btn btn-primary">Add a New Medical Contact</button>
+
+@code{
+    private void AddMedicalContact()
+    {
+        if (!string.IsNullOrWhiteSpace(MContactName) && !string.IsNullOrWhiteSpace(MContactPhone) && !string.IsNullOrWhiteSpace(MContactSpecialty) && !string.IsNullOrWhiteSpace(MContactoffice))
+        {
+            medicalContacts.Add(new Data.MedicalContact
+            {
+                office = MContactoffice,
+                name = MContactName,
+                specialty = MContactSpecialty,
+                phone = MContactPhone
+            });
+            MContactoffice = string.Empty;
+            MContactName = string.Empty;
+            MContactSpecialty = string.Empty;
+            MContactPhone = string.Empty;
+        }
+    }
+}
+
+<br>
+<br>
 
 <h2>Personal Contacts</h2>
 
@@ -51,68 +101,57 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th>Jane </th>
-            <th>Domestic Partner</th>
-            <th>(111) 444 555</th>
-        </tr>
-        <tr>
-            <th>A. May</th>
-            <th>Aunt</th>
-            <th>(111) 888-888</th>
-        </tr>
+
+        @foreach (var contact in personalContacts)
+        {
+            <tr>
+                <th>@contact.name</th>
+                <th>@contact.relation</th>
+                <th>@contact.phone</th>
+            </tr>
+        }
     </tbody>
 </table>
 
-<br>
-<button class="btn btn-primary" @onclick="NewContact">Add a New Medical Contact</button>
 
 <br>
 <br>
-
-<div class="form-group">
-    <label for="usr">Office:</label>
-    <input type="text" class="form-control" id="pwd">
-</div>
-<div class="form-group">
-    <label for="usr">Name:</label>
-    <input type="text" class="form-control" id="usr">
-</div>
-<div class="form-group">
-    <label for="usr">Specialty:</label>
-    <input type="text" class="form-control" id="pwd">
-</div>
-<div class="form-group">
-    <label for="usr">Phone:</label>
-    <input type="text" class="form-control" id="pwd">
-</div>
-
-<br>
-<button class="btn btn-primary" @onclick="NewContact">Add a New Personal Contact</button>
-
-<br>
-<br>
+<h3>Enter a new Personal Contact:</h3>
 
 <div class="form-group">
     <label for="usr">Name:</label>
-    <input type="text" class="form-control" id="usr">
+    <input type="text" class="form-control" id="usr" @bind="PContactName">
 </div>
 <div class="form-group">
     <label for="usr">Relationship:</label>
-    <input type="text" class="form-control" id="pwd">
+    <input type="text" class="form-control" id="pwd" @bind="PContactrelation">
 </div>
 <div class="form-group">
     <label for="usr">Phone:</label>
-    <input type="text" class="form-control" id="pwd">
+    <input type="text" class="form-control" id="pwd" @bind="PContactphone">
 </div>
+<br />
 
-
-@code {
-
-    private void NewContact()
+<button @onclick="AddPersonalContact" class="btn btn-primary">Add a New Personal Contact</button>
+@code{
+    private void AddPersonalContact()
     {
-
+        if (!string.IsNullOrWhiteSpace(PContactName) && !string.IsNullOrWhiteSpace(PContactrelation) && !string.IsNullOrWhiteSpace(PContactphone))
+        {
+            personalContacts.Add(new Data.PersonalContact
+            {
+                name = PContactName,
+                relation = PContactrelation,
+                phone = PContactphone,
+            });
+            PContactName = string.Empty;
+            PContactrelation = string.Empty;
+            PContactphone = string.Empty;
+        }
     }
-
-
 }
+
+<br />
+<br />
+<br />
+
