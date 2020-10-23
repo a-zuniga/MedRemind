@@ -1,0 +1,20 @@
+﻿@page "/insights"
+
+@using MedRemind.Data
+<h3>Insights</h3>
+<br />
+
+<AuthorizeView>
+    <Authorized>
+        <p>Please input information about your medication in order to add it to your list of medications.</p>
+
+
+    </Authorized>
+    <NotAuthorized>
+        Seems like you are not logged in! Please log in or register in order to access our services.
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+}
