@@ -6,61 +6,106 @@
 <h2>Medical Contacts</h2>
 
 
-@if (1 == 0)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Office</th>
-                <th>Name</th>
-                <th>Specialty</th>
-                <th>Phone</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>Metro Pediatric Services</th>
-                <th>Dr. John Doe</th>
-                <th>Nurse Practitioner</th>
-                <th>jon@jon.com</th>
-            </tr>
-        </tbody>
-    </table>
-}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Office</th>
+            <th>Name</th>
+            <th>Specialty</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Metropolitan Orthodontics</th>
+            <th>Dr. A. Maria</th>
+            <th>Orthodontist</th>
+            <th>(444) 444-444</th>
+        </tr>
+        <tr>
+            <th>Metro Pediatric Services</th>
+            <th>Dr. John Doe</th>
+            <th>Nurse Practitioner</th>
+            <th>(111) 111-111</th>
+        </tr>
+        <tr>
+            <th>Richmond CVS</th>
+            <th>A. Allen</th>
+            <th>Pharmacist</th>
+            <th>(111) 222-222</th>
+        </tr>
+    </tbody>
+</table>
 
 <br />
 
 <h2>Personal Contacts</h2>
 
-@if (1 == 0)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Relation</th>
-                <th>Phone</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>Jane Doe</th>
-                <th>Domestic Partner</th>
-                <th>doe@doe.com</th>
-            </tr>
-        </tbody>
-    </table>
-}
 
-<button class="btn btn-primary" @onclick="NewContact">Add a New Contact</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Relation</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Jane </th>
+            <th>Domestic Partner</th>
+            <th>(111) 444 555</th>
+        </tr>
+        <tr>
+            <th>A. May</th>
+            <th>Aunt</th>
+            <th>(111) 888-888</th>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<button class="btn btn-primary" @onclick="NewContact">Add a New Medical Contact</button>
+
+<br>
+<br>
+
+<div class="form-group">
+    <label for="usr">Office:</label>
+    <input type="text" class="form-control" id="pwd">
+</div>
+<div class="form-group">
+    <label for="usr">Name:</label>
+    <input type="text" class="form-control" id="usr">
+</div>
+<div class="form-group">
+    <label for="usr">Specialty:</label>
+    <input type="text" class="form-control" id="pwd">
+</div>
+<div class="form-group">
+    <label for="usr">Phone:</label>
+    <input type="text" class="form-control" id="pwd">
+</div>
+
+<br>
+<button class="btn btn-primary" @onclick="NewContact">Add a New Personal Contact</button>
+
+<br>
+<br>
+
+<div class="form-group">
+    <label for="usr">Name:</label>
+    <input type="text" class="form-control" id="usr">
+</div>
+<div class="form-group">
+    <label for="usr">Relationship:</label>
+    <input type="text" class="form-control" id="pwd">
+</div>
+<div class="form-group">
+    <label for="usr">Phone:</label>
+    <input type="text" class="form-control" id="pwd">
+</div>
+
 
 @code {
 
