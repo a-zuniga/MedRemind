@@ -1,0 +1,68 @@
+﻿@page "/contacts"
+
+<h1>Contacts</h1>
+<br>
+
+<h2>Medical Contacts</h2>
+
+
+@if (1 == 0)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Office</th>
+                <th>Name</th>
+                <th>Specialty</th>
+                <th>Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Metro Pediatric Services</th>
+                <th>Dr. John Doe</th>
+                <th>Nurse Practitioner</th>
+                <th>(444)444-444</th>
+            </tr>
+        </tbody>
+    </table>
+}
+
+<br />
+
+<h2>Personal Contacts</h2>
+
+@if (1 == 0)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Relation</th>
+                <th>Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Jane Doe</th>
+                <th>Domestic Partner</th>
+                <th>(444)444-444</th>
+            </tr>
+        </tbody>
+    </table>
+}
+
+@code {
+
+
+
+
+}
