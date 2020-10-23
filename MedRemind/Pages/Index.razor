@@ -1,6 +1,28 @@
 ﻿@page "/"
 
-<h1>Welcome to MedRemind! Please sign in to access medication records.</h1>
+<h1>Welcome to MedRemind, @authState.User.Identity.Name; </h1>
+<br />
 
-Welcome to your new app.
 
+
+@code {
+
+
+
+
+    // Getting user info
+    [CascadingParameter]
+    private Task<AuthenticationState> _authState { get; set; }
+    // Concatenating the name of the user
+    private string[] emailAddress; 
+    
+
+
+    private AuthenticationState authState;
+
+    protected override async Task OnInitializedAsync()
+    {
+        authState = await _authState;
+    }
+
+}
